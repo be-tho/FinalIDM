@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Utilidades</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <!-- La estructura de app híbrida singlepage consta de trabajar un único html que contenga todas las vistas de la app que se navegarán "como si fueran páginas individuales" ya que tomarán foco de navegación solo la que se haya navegado y el resto estarán ocultas (trabajamos con target). La ventaja de este método es que al tener todo en un único html, cuando éste carga, carga la app completa (más rápido y eficiente) y por tener menos estructura la app tendrá un peso menor con este método.
+    
+    El nav lo ubicamos por debajo de todos los elementos para seleccionarlo como hermano de las vistas y aplicar CSS (ver comentarios en el CSS). Lo mismo hacemos con la vista uno para que se muestre al cargar la app y se pueda ocultar cuando cualquier otra vista está en foco de navegación (ver comentarios en el CSS). -->
+    
+    <!-------------------------------------------------------- MODAL ------->
+
+    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="exampleModalLabel">Atención!!!</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid totam vel expedita deserunt dolorem, eos obcaecati voluptate adipisci incidunt? Porro, beatae voluptatem dolorem illo quidem ipsa fugit perferendis odio voluptate.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="cierra">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!------------------------------------------- FIN MODAL ----------->
+
+
+
+    <!-------------------------------------------------- PÁGINA DOS ---------->
+
+
+    <div class="container-fluid" data-role="page" id="dos">
+        <div class="row border-bottom mb-3 py-2 px-3 cont-logo">
+            <h1 class="display-4">logo</h1>
+        </div>
+        <div class="row">
+            <div class="col-12 pb-3">
+                <div class="card border-warning">
+                    <div class="card-body">
+                        <img src="imagenes/foto.jpg" alt="foto" class="img-fluid">
+                        
+                        <!-- Ver código al final del documento. -->
+                        
+                        <p class="text-truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique doloremque ea, suscipit error velit quasi nulla sequi id natus, fugit odit, quas beatae. Asperiores enim quidem esse excepturi expedita, placeat.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 pb-3">
+                <div class="card border-warning">
+                    <div class="card-body">
+                        <img src="imagenes/foto.jpg" alt="foto" class="img-fluid">
+                        <p class="text-truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique doloremque ea, suscipit error velit quasi nulla sequi id natus, fugit odit, quas beatae. Asperiores enim quidem esse excepturi expedita, placeat.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 pb-3">
+                <div class="card border-warning">
+                    <div class="card-body">
+                        <img src="imagenes/foto.jpg" alt="foto" class="img-fluid">
+                        <p class="text-truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique doloremque ea, suscipit error velit quasi nulla sequi id natus, fugit odit, quas beatae. Asperiores enim quidem esse excepturi expedita, placeat.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 pb-3">
+                <div class="card border-warning">
+                    <div class="card-body">
+                        <img src="imagenes/foto.jpg" alt="foto" class="img-fluid">
+                        <p class="text-truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique doloremque ea, suscipit error velit quasi nulla sequi id natus, fugit odit, quas beatae. Asperiores enim quidem esse excepturi expedita, placeat.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!------------------------------------------------- PÁGINA TRES ---------->
+
+
+    <div class="container-fluid" data-role="page" id="tres">
+        <div class="row border-bottom mb-3 py-2 px-3 cont-logo">
+            <h1 class="display-4">logo</h1>
+        </div>
+        <div class="row">
+            <div class="col-12 pb-3">
+                <div class="card border-danger">
+                    <div class="card-body">
+                        <h2 class="card-title">Sección TRES</h2>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo cumque voluptate magni aut consequatur quo dignissimos omnis! Sequi ipsam itaque quod aut est tempore, exercitationem corrupti molestias iusto, voluptatibus tempora!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 pb-3">
+                <div class="card border-danger">
+                    <div class="card-body">
+                        <h2 class="card-title">Sección TRES</h2>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo cumque voluptate magni aut consequatur quo dignissimos omnis! Sequi ipsam itaque quod aut est tempore, exercitationem corrupti molestias iusto, voluptatibus tempora!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 pb-3">
+                <div class="card border-danger">
+                    <div class="card-body">
+                        <h2 class="card-title">Sección TRES</h2>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo cumque voluptate magni aut consequatur quo dignissimos omnis! Sequi ipsam itaque quod aut est tempore, exercitationem corrupti molestias iusto, voluptatibus tempora!</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-------------------------------------------------- PÁGINA CUATRO ------->
+
+    <div class="container-fluid" data-role="page" id="cuatro">
+        <div class="row border-bottom mb-3 py-2 px-3 cont-logo">
+            <h1 class="display-4">logo</h1>
+        </div>
+        <div class="row">
+            <div class="col-12 pb-3">
+                <div class="card border-success">
+                    <div class="card-body">
+                        <h2 class="card-title">Sección CUATRO</h2>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo cumque voluptate magni aut consequatur quo dignissimos omnis! Sequi ipsam itaque quod aut est tempore, exercitationem corrupti molestias iusto, voluptatibus tempora!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 pb-3">
+                <div class="card border-success">
+                    <div class="card-body">
+                        <h2 class="card-title">Sección CUATRO</h2>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo cumque voluptate magni aut consequatur quo dignissimos omnis! Sequi ipsam itaque quod aut est tempore, exercitationem corrupti molestias iusto, voluptatibus tempora!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 pb-3">
+                <div class="card border-success">
+                    <div class="card-body">
+                        <h2 class="card-title">Sección CUATRO</h2>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo cumque voluptate magni aut consequatur quo dignissimos omnis! Sequi ipsam itaque quod aut est tempore, exercitationem corrupti molestias iusto, voluptatibus tempora!</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!---------------------------------------------- PÁGINA UNO ------------->
+
+    <div class="container-fluid" data-role="page" id="uno">
+        <div class="row border-bottom mb-3 py-2 px-3 cont-logo">
+            <h1 class="display-4">logo</h1>
+        </div>        
+        <div class="row">
+            <div class="col-12 pb-3">
+                <div class="card border-secondary">
+                    <div class="card-body">
+                        <h2 class="card-title">Sección UNO</h2>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo cumque voluptate magni aut consequatur quo dignissimos omnis! Sequi ipsam itaque quod aut est tempore, exercitationem corrupti molestias iusto, voluptatibus tempora!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 pb-3">
+                <div class="card border-secondary">
+                    <div class="card-body">
+                        <h2 class="card-title">Sección UNO</h2>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo cumque voluptate magni aut consequatur quo dignissimos omnis! Sequi ipsam itaque quod aut est tempore, exercitationem corrupti molestias iusto, voluptatibus tempora!</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <!------------------------------------------------------ NAV ------------>
+
+    <nav class="col navbar navbar-expand navbar-light fixed-bottom mb-0 border-top">
+        <div class="collapse navbar-collapse" id="barra">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link border-right" href="#uno"><img src="imagenes/bell.svg" alt="icono"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link border-right" href="#dos"><img src="imagenes/heart.svg" alt="icono"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link border-right" href="#tres"><img src="imagenes/calendar-check.svg" alt="icono"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#cuatro"><img src="imagenes/user.svg" alt="icono"></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
+    <script>
+        /* Seleccionamos a los párrafos que tienen aplicada la clase text-truncate de Bootstrap (corta el texto en una única línea y le agrega los ... cuando no entra completo en su contenedor) y le asociamos el evento click. En la función que responde al evento, al párrafo al que le hicimos click (this) le sacamos la clase text-truncate para liberar el texto y verlo completo o se la aplicamos si se la habíamos sacado previamente con clicks sucesivos. */
+        
+        $('.text-truncate').on('click', function() {
+            $(this).toggleClass('text-truncate');
+
+        });
+
+    </script>
+</body>
+
+</html>
