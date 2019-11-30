@@ -124,6 +124,7 @@ nav .nav-item:nth-of-type(1) img[src*=".svg"] {
 .container-fluid{
     background: #f3f1ec;
 }
+/* Estilos Modal productos*/
 .modalprod{
     position: fixed;
     z-index: 10;
@@ -137,10 +138,84 @@ nav .nav-item:nth-of-type(1) img[src*=".svg"] {
     right: 0;
     background-color: rgba(0,0,0,.9);
 }
+.modalprod > a{
+    position: fixed;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 1em;
+    right: 1em;
+    border-radius: 1em;
+    width: 2em;
+    height: 2em;
+    background-color: rgba(255,255,255,.9);
+    font-size: 1em;
+    font-weight: 400;
+    text-align: center;
+    color: #b9193e;
+    text-decoration: none;
+}
+.modalprod > a:hover{
+    background-color: #b9193e;
+    color: rgba(255,255,255,.9);
+}
+.modalprod > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 22em;
+    padding: 1em;
+    background-color: #FFF;
+}
+.modalprod > div > img {
+    width: 100%;
+}
+.modalprod h3{
+    font-size: 1.8em;
+    line-height: 1.5;
+    font-weight: 400;
+    text-align: left;
+    color: #333333;
+}
+.modalprod p{
+    font-size: 1em;
+    line-height: 1.5;
+    font-weight: 400;
+    text-align: left;
+    color: #333333;
+    margin: 0;
+}
+.modalprod span{
+    font-size: 1em;
+    font-weight: 700; 
+}
+.modalprod button{
+    margin-top: 1em;
+    border-radius: .5em;
+    border: 1px solid #D4EAF3;
+    width: 100%;
+    padding: 0 .5em;
+    background: #b9193e;
+    font-size: 1.3em;
+    line-height: 1.5;
+    font-weight: 400;
+    text-align: center;
+    color: #ffffff;
+    cursor: pointer;
+}
+.modalprod button:hover{
+    border: 1px solid #b9193e;
+    background: #f5c1cd;
+    color: #b9193e;	
+}
+
 /*estilos a los divs de productos*/
 #Productos{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     text-align: center;
 }
 #Productos > div{

@@ -121,7 +121,7 @@ $(function() {
     contP = $('#Productos');
     let cont = 1;
     for(var i = 0; i < aProductos.length; i++){
-        $('<div class =  "col-md-3 prod" dataid = "' + aProductos[i].id + '"><img src="'+ aProductos[i].Imagen.src +'" alt="'+ aProductos[i].Imagen.alt +'"><div><h3>'+ aProductos[i].Nombre +'</h3><div><p>Precio: <span>'+ aProductos[i].Precio +'</span></p></div></div></div>').
+        $('<div class =  "col-md-3 prod" dataid = "' + aProductos[i].id + '"><img src="'+ aProductos[i].Imagen.src +'" alt="'+ aProductos[i].Imagen.alt +'"><div><h3>'+ aProductos[i].Nombre +'</h3><div><p>Precio: <span>$'+ aProductos[i].Precio +'</span></p></div></div></div>').
         appendTo(contP);
     }
     $('.prod').click(function(){
@@ -132,7 +132,7 @@ $(function() {
         for(var i = 0; i < aProductos.length; i++){ 
             uno = $('#uno');
             if (aProductos[i].id == elId) {
-                $('<div class = "modalprod"><a href="#">CERRAR</a><img src="'+ aProductos[i].Imagen.src +'" alt="'+ aProductos[i].Imagen.alt +'"><div><h3>'+ aProductos[i].Nombre +'</h3><div><p>Precio: <span>'+ aProductos[i].Precio +'</span></p><button class="btn btn-danger btnAgregar">Agregar</button></div></div></div>').
+                $('<div class = "modalprod"><a href="javascript:void(0)">X</a><div><img src="'+ aProductos[i].Imagen.src +'" alt="'+ aProductos[i].Imagen.alt +'"><div><h3>'+ aProductos[i].Nombre +'</h3><p>Precio: <span>$'+ aProductos[i].Precio +'</span></p><p>'+ aProductos[i].Descripción +'</p></div><button class="btn btn-danger btnAgregar">Agregar</button></div></div>').
                 appendTo(uno).hide().fadeIn('slow').find('a').click( function () {
                     $('.modalprod').fadeOut('slow', function() { $(this).remove() });
                     return false;
