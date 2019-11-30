@@ -93,7 +93,7 @@ var aProductos = [
 		],
 	},
 	{
-		id: 6,
+		id: 7,
 		Nombre: 'Vestido White',
 		Precio: 1200,
 		'Descripción': 'Vestido elegante con tasas echo de la mejor tela "razo" con tull',
@@ -132,8 +132,11 @@ $(function() {
         for(var i = 0; i < aProductos.length; i++){ 
             uno = $('#uno');
             if (aProductos[i].id == elId) {
-                $('<div class = "modalprod"><img src="'+ aProductos[i].Imagen.src +'" alt="'+ aProductos[i].Imagen.alt +'"><div><h3>'+ aProductos[i].Nombre +'</h3><div><p>Precio: <span>'+ aProductos[i].Precio +'</span></p><button class="btn btn-danger btnAgregar">Agregar</button></div></div></div>').
-                appendTo(uno).hide().fadeIn('fast');
+                $('<div class = "modalprod"><a href="#">CERRAR</a><img src="'+ aProductos[i].Imagen.src +'" alt="'+ aProductos[i].Imagen.alt +'"><div><h3>'+ aProductos[i].Nombre +'</h3><div><p>Precio: <span>'+ aProductos[i].Precio +'</span></p><button class="btn btn-danger btnAgregar">Agregar</button></div></div></div>').
+                appendTo(uno).hide().fadeIn('slow').find('a').click( function () {
+                    $('.modalprod').fadeOut('slow', function() { $(this).remove() });
+                    return false;
+                });
             }
         }
     }
