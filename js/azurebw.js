@@ -118,6 +118,7 @@ let contP;
 let uno;
 
 $(function() {
+	uno = $('#uno');
     contP = $('#Productos');
     let cont = 1;
     for(var i = 0; i < aProductos.length; i++){
@@ -125,21 +126,26 @@ $(function() {
         appendTo(contP);
     }
     $('.prod').click(function(){
-        ObtenerProducto($(this).attr('dataid'));
-    })
-
+		ObtenerProducto($(this).attr('dataid'));
+	});
+	$('.prod img').mouseover(function(){
+		let art = $(this);
+		$('<img src="'+ $(this).attr('src') +'" alt="'+ $(this).attr('alt') +'" class="zoom" />').
+		insertAfter(art);
+		$(this).mouseout(function(){ $(this).next('img').remove() });
+	});
     function ObtenerProducto(elId) {
         for(var i = 0; i < aProductos.length; i++){ 
-            uno = $('#uno');
+            
             if (aProductos[i].id == elId) {
                 $('<div class = "modalprod"><a href="javascript:void(0)">X</a><div><img src="'+ aProductos[i].Imagen.src +'" alt="'+ aProductos[i].Imagen.alt +'"><div><h3>'+ aProductos[i].Nombre +'</h3><p>Precio: <span>$'+ aProductos[i].Precio +'</span></p><p>'+ aProductos[i].Descripción +'</p></div><button class="btn btn-danger btnAgregar">Agregar</button></div></div>').
                 appendTo(uno).hide().fadeIn('slow').find('a').click( function () {
                     $('.modalprod').fadeOut('slow', function() { $(this).remove() });
                     return false;
-                });
+				});
             }
         }
-    }
+	}
 });
 
 

@@ -211,7 +211,12 @@ nav .nav-item:nth-of-type(1) img[src*=".svg"] {
     background: #f5c1cd;
     color: #b9193e;	
 }
-
+.zoom{
+    position: absolute; 
+    z-index:110; 
+    top:0; 
+    left:102%;
+}
 /*estilos a los divs de productos*/
 #Productos{
     display: flex;
