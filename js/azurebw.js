@@ -1,12 +1,13 @@
 var aProductos = [
 	{
 		id: 1,
-		Nombre: 'Short Pollera',
-		Precio: 370,
-		'Descripción': 'Short pollera con hebilla, con una hermosa tela de bengalina.',
+		Nombre: 'Remera Bebecita',
+		Precio: 999,
+		Categoria: "remeras" ,
+		'Descripción': 'Remera manga corta de jersey. Cuello redondo aplicado. Largo arriba de la cintura. Ruedo al corte. Estampa centrada en frente.',
 		Imagen: {
-			src: 'imagenes/articulos/1.jpg',
-			alt: 'Short Pollera negra',
+			src: 'imagenes/articulos/remeras/1.jpg',
+			alt: 'Remera Naranja "Bebecita"',
 		},
 		Colores: [
 			'negro',
@@ -16,12 +17,13 @@ var aProductos = [
 	},
 	{
 		id: 2,
-		Nombre: 'Pollera con cierre',
-		Precio: 300,
-		'Descripción': 'Pollera con cierre negro, de crep punto con el mejor calze del mercado.',
+		Nombre: 'Remera One Way',
+		Precio: 799,
+		Categoria: "remeras" ,
+		'Descripción': 'Remera básica manga corta cuello redondo de pro modal. collareta aplicada en cuello a tono de la base. Ruedo al corte. Largo a la cintura. Estampa centrada en frente.',
 		Imagen: {
-			src: 'imagenes/articulos/2.jpg',
-			alt: 'Pollera con cierre',
+			src: 'imagenes/articulos/remeras/2.jpg',
+			alt: 'Remera con estampa de coches',
 		},
 		Colores: [
 			'negro',
@@ -31,12 +33,13 @@ var aProductos = [
 	},
 	{
 		id: 3,
-		Nombre: 'Remera basica guess',
-		Precio: 200,
-		'Descripción': 'Remera basica de la mejor calidad de modal viscoza con estampado guess.',
+		Nombre: 'Top Zhavia',
+		Precio: 799,
+		Categoria: "tops" ,
+		'Descripción': 'Top tipo viso en satén con tanca y elástico para fruncir en ruedo.',
 		Imagen: {
-			src: 'imagenes/articulos/3.jpg',
-			alt: 'Remera guess',
+			src: 'imagenes/articulos/tops/1.jpg',
+			alt: 'Top azul',
 		},
 		Colores: [
 			'negro',
@@ -46,12 +49,13 @@ var aProductos = [
 	},
 	{
 		id: 4,
-		Nombre: 'Top un hombro',
-		Precio: 220,
-		'Descripción': 'Top un hombro crep',
+		Nombre: 'Top Murray',
+		Precio: 1199,
+		Categoria: "tops" ,
+		'Descripción': 'Top básico de supplex. Breteles de elástico al tono de la prenda. Largo a la cintura. Grifa institucional en ruedo izquierdo.',
 		Imagen: {
-			src: 'imagenes/articulos/4.jpg',
-			alt: 'top hombro',
+			src: 'imagenes/articulos/tops/2.jpg',
+			alt: 'top básica',
 		},
 		Colores: [
 			'negro',
@@ -61,12 +65,13 @@ var aProductos = [
 	},
 	{
 		id: 5,
-		Nombre: 'Body',
-		Precio: 350,
-		'Descripción': 'Body con hebilla de crep',
+		Nombre: 'Vestido Wishes',
+		Precio: 6999,
+		Categoria: "vestidos" ,
+		'Descripción': 'Vestido largo cruzado con escote en v profundo en frente y espalda, con lazos para anudar en hombros sobre el bretel.',
 		Imagen: {
-			src: 'imagenes/articulos/5.jpg',
-			alt: 'body con hebilla',
+			src: 'imagenes/articulos/vestidos/1.jpg',
+			alt: 'Vestido beige',
 		},
 		Colores: [
 			'negro',
@@ -77,12 +82,13 @@ var aProductos = [
 	},
 	{
 		id: 6,
-		Nombre: 'Remera basica',
-		Precio: 180,
-		'Descripción': 'Remera basica con estampa vibe.',
+		Nombre: 'Vestido Highlight',
+		Precio: 4399,
+		Categoria: "vestidos" ,
+		'Descripción': 'Vestido largo al cuerpo, tipo tubo. De creppe con spandex. Con tajo delantero y escote recto con breteles anchos.',
 		Imagen: {
-			src: 'imagenes/articulos/6.jpg',
-			alt: 'Remera basica blanca',
+			src: 'imagenes/articulos/vestidos/2.jpg',
+			alt: 'Vestido elegante negro',
 		},
 		Colores: [
 			'negro',
@@ -94,12 +100,45 @@ var aProductos = [
 	},
 	{
 		id: 7,
-		Nombre: 'Vestido White',
-		Precio: 1200,
-		'Descripción': 'Vestido elegante con tasas echo de la mejor tela "razo" con tull',
+		Nombre: 'Remera Euphoria',
+		Precio: 799,
+		Categoria: "remeras" ,
+		'Descripción': 'Remera manga corta cuello redondo de jersey. Ruedo al corte. Cuello con collareta al tono. Estampa centrada en frente.',
 		Imagen: {
-			src: 'imagenes/articulos/7.jpg',
-			alt: 'Vestido blanco',
+			src: 'imagenes/articulos/remeras/3.jpg',
+			alt: 'Remera azul',
+		},
+		Colores: [
+			'negro',
+			'rojo',
+			'azul',
+		],
+	},
+	{
+		id: 8,
+		Nombre: 'Top Kuwait',
+		Precio: 1899,
+		Categoria: "tops" ,
+		'Descripción': 'Top de lino escote v profundo con entredós en recorte de hombrera y en escote. Ruedo fruncido con tanca y elástico flúor para ajustar y sujetar.',
+		Imagen: {
+			src: 'imagenes/articulos/tops/3.jpg',
+			alt: 'Top color petroleo',
+		},
+		Colores: [
+			'negro',
+			'crema',
+			'rojo',
+		],
+	},
+	{
+		id: 9,
+		Nombre: 'Vestido All Stripes',
+		Precio: 1499,
+		Categoria: "vestidos" ,
+		'Descripción': 'Vestido básico de morley rayado. Escote cerrado con sisas cavadas. Molderia acampanada. Largo arriba de la rodilla. Grifa institucional en ruedo izquierdo.',
+		Imagen: {
+			src: 'imagenes/articulos/vestidos/3.jpg',
+			alt: 'Vestido rayado blanco y negro de morley',
 		},
 		Colores: [
 			'negro',
@@ -113,23 +152,61 @@ d = document,
 qS = 'querySelector',
 qSa = 'querySelectorAll',
 cE = 'createElement';
-let btn;
-let contP;
-let uno;
+var btn,
+contP,
+uno,
+rem,
+top,
+vest;
 
 $(function() {
 	uno = $('#uno');
     contP = $('#Productos');
-    let cont = 1;
+    var cont = 1;
     for(var i = 0; i < aProductos.length; i++){
         $('<div class =  "col-md-3 prod" dataid = "' + aProductos[i].id + '"><img src="'+ aProductos[i].Imagen.src +'" alt="'+ aProductos[i].Imagen.alt +'"><div><h3>'+ aProductos[i].Nombre +'</h3><div><p>Precio: <span>$'+ aProductos[i].Precio +'</span></p></div></div></div>').
         appendTo(contP);
-    }
+	}
     $('.prod').click(function(){
 		ObtenerProducto($(this).attr('dataid'));
 	});
+
+	$('.cat-btn li').click(function(){
+		if($(this).attr('focus') == "remeras"){
+			$('.prod').remove();
+			for(var i = 0; i < aProductos.length; i++){ 
+				if (aProductos[i].Categoria == "remeras") {
+					$('<div class =  "col-md-3 prod" dataid = "' + aProductos[i].id + '"><img src="'+ aProductos[i].Imagen.src +'" alt="'+ aProductos[i].Imagen.alt +'"><div><h3>'+ aProductos[i].Nombre +'</h3><div><p>Precio: <span>$'+ aProductos[i].Precio +'</span></p></div></div></div>').
+					appendTo(contP);
+				}
+			}
+		}else if($(this).attr('focus') == "tops"){
+			$('.prod').remove();
+			for(var i = 0; i < aProductos.length; i++){ 
+				if (aProductos[i].Categoria == "tops") {
+					$('<div class =  "col-md-3 prod" dataid = "' + aProductos[i].id + '"><img src="'+ aProductos[i].Imagen.src +'" alt="'+ aProductos[i].Imagen.alt +'"><div><h3>'+ aProductos[i].Nombre +'</h3><div><p>Precio: <span>$'+ aProductos[i].Precio +'</span></p></div></div></div>').
+					appendTo(contP);
+				}
+			}
+		}else if($(this).attr('focus') == "vestidos"){
+			$('.prod').remove();
+			for(var i = 0; i < aProductos.length; i++){ 
+				if (aProductos[i].Categoria == "vestidos") {
+					$('<div class =  "col-md-3 prod" dataid = "' + aProductos[i].id + '"><img src="'+ aProductos[i].Imagen.src +'" alt="'+ aProductos[i].Imagen.alt +'"><div><h3>'+ aProductos[i].Nombre +'</h3><div><p>Precio: <span>$'+ aProductos[i].Precio +'</span></p></div></div></div>').
+					appendTo(contP);
+				}
+			}
+		}else{
+			$('.prod').remove();
+			for(var i = 0; i < aProductos.length; i++){
+				$('<div class =  "col-md-3 prod" dataid = "' + aProductos[i].id + '"><img src="'+ aProductos[i].Imagen.src +'" alt="'+ aProductos[i].Imagen.alt +'"><div><h3>'+ aProductos[i].Nombre +'</h3><div><p>Precio: <span>$'+ aProductos[i].Precio +'</span></p></div></div></div>').
+				appendTo(contP);
+			}
+		}
+	});
+
 	$('.prod img').mouseover(function(){
-		let art = $(this);
+		var art = $(this);
 		$('<img src="'+ $(this).attr('src') +'" alt="'+ $(this).attr('alt') +'" class="zoom" />').
 		insertAfter(art);
 		$(this).mouseout(function(){ $(this).next('img').remove() });
