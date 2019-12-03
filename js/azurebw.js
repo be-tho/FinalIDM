@@ -180,6 +180,9 @@ $(function() {
 					appendTo(contP);
 				}
 			}
+			$('.prod').click(function(){
+				ObtenerProducto($(this).attr('dataid'));
+			});
 		}else if($(this).attr('focus') == "tops"){
 			$('.prod').remove();
 			for(var i = 0; i < aProductos.length; i++){ 
@@ -188,6 +191,9 @@ $(function() {
 					appendTo(contP);
 				}
 			}
+			$('.prod').click(function(){
+				ObtenerProducto($(this).attr('dataid'));
+			});
 		}else if($(this).attr('focus') == "vestidos"){
 			$('.prod').remove();
 			for(var i = 0; i < aProductos.length; i++){ 
@@ -196,12 +202,18 @@ $(function() {
 					appendTo(contP);
 				}
 			}
+			$('.prod').click(function(){
+				ObtenerProducto($(this).attr('dataid'));
+			});
 		}else{
 			$('.prod').remove();
 			for(var i = 0; i < aProductos.length; i++){
 				$('<div class =  "col-md-3 prod" dataid = "' + aProductos[i].id + '"><img src="'+ aProductos[i].Imagen.src +'" alt="'+ aProductos[i].Imagen.alt +'"><div><h3>'+ aProductos[i].Nombre +'</h3><div><p>Precio: <span>$'+ aProductos[i].Precio +'</span></p></div></div></div>').
 				appendTo(contP);
 			}
+			$('.prod').click(function(){
+				ObtenerProducto($(this).attr('dataid'));
+			});
 		}
 	});
 
