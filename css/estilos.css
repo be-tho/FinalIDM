@@ -246,3 +246,50 @@ nav .nav-item:nth-of-type(1) img[src*=".svg"] {
 #Productos img{
     width: 100%;
 }
+#Productos ul li {
+    margin-bottom: 1em;
+}
+.azul{
+    background: #17a2b8 !important;
+    color: white;
+}
+.verde{
+    background: #28a745 !important;
+    color: white;
+}
+.rojo{
+    background: #dc3545 !important;
+    color: white;
+}
+.detalleLi{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.detalleLi > img{
+    width: 100px;
+}
+.detalle li {
+    list-style: none;
+    display: flex;
+    margin-bottom: 2em;
+    flex-wrap: wrap;
+    background: #fc3e67;
+    color: #ffffff;
+    padding-left: 0;
+}
+.detalleLi p{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    font-size: 1.3em;
+}
+.detalle li a{
+    cursor: pointer;
+    list-style: none;
+    text-decoration: none;
+    color: #ffffff;
+}

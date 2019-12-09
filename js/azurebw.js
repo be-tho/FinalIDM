@@ -9,11 +9,7 @@ var aProductos = [
 			src: 'imagenes/articulos/remeras/1.jpg',
 			alt: 'Remera Naranja "Bebecita"',
 		},
-		Colores: [
-			'negro',
-			'rojo',
-			'crema',
-		],
+		Color: "azul",
 	},
 	{
 		id: 2,
@@ -25,11 +21,7 @@ var aProductos = [
 			src: 'imagenes/articulos/remeras/2.jpg',
 			alt: 'Remera con estampa de coches',
 		},
-		Colores: [
-			'negro',
-			'rojo',
-			'azul',
-		],
+		Color: "azul",
 	},
 	{
 		id: 3,
@@ -41,11 +33,7 @@ var aProductos = [
 			src: 'imagenes/articulos/tops/1.jpg',
 			alt: 'Top azul',
 		},
-		Colores: [
-			'negro',
-			'rojo',
-			'azul',
-		],
+		Color: "verde",
 	},
 	{
 		id: 4,
@@ -57,11 +45,7 @@ var aProductos = [
 			src: 'imagenes/articulos/tops/2.jpg',
 			alt: 'top básica',
 		},
-		Colores: [
-			'negro',
-			'rojo',
-			'crema',
-		],
+		Color: "verde",
 	},
 	{
 		id: 5,
@@ -73,12 +57,7 @@ var aProductos = [
 			src: 'imagenes/articulos/vestidos/1.jpg',
 			alt: 'Vestido beige',
 		},
-		Colores: [
-			'negro',
-			'rojo',
-			'verde',
-			'blanco',
-		],
+		Color: "rojo",
 	},
 	{
 		id: 6,
@@ -90,13 +69,7 @@ var aProductos = [
 			src: 'imagenes/articulos/vestidos/2.jpg',
 			alt: 'Vestido elegante negro',
 		},
-		Colores: [
-			'negro',
-			'crema',
-			'rojo',
-			'verde',
-			'amarillo',
-		],
+		Color: "rojo",
 	},
 	{
 		id: 7,
@@ -108,11 +81,7 @@ var aProductos = [
 			src: 'imagenes/articulos/remeras/3.jpg',
 			alt: 'Remera azul',
 		},
-		Colores: [
-			'negro',
-			'rojo',
-			'azul',
-		],
+		Color: "azul",
 	},
 	{
 		id: 8,
@@ -124,11 +93,7 @@ var aProductos = [
 			src: 'imagenes/articulos/tops/3.jpg',
 			alt: 'Top color petroleo',
 		},
-		Colores: [
-			'negro',
-			'crema',
-			'rojo',
-		],
+		Color: "verde",
 	},
 	{
 		id: 9,
@@ -140,13 +105,13 @@ var aProductos = [
 			src: 'imagenes/articulos/vestidos/3.jpg',
 			alt: 'Vestido rayado blanco y negro de morley',
 		},
-		Colores: [
-			'negro',
-			'crema',
-			'rojo',
-		],
+		Color: "rojo",
 	},
 ];
+
+
+
+
 var _c = console.log,
 d = document,
 qS = 'querySelector',
@@ -157,49 +122,94 @@ contP,
 uno,
 rem,
 top,
-vest;
+vest,
+dos,
+band = 0;
 
 $(function() {
 	uno = $('#uno');
     contP = $('#Productos');
     var cont = 1;
     for(var i = 0; i < aProductos.length; i++){
-        $('<div class =  "col-md-3 prod" dataid = "' + aProductos[i].id + '"><img src="'+ aProductos[i].Imagen.src +'" alt="'+ aProductos[i].Imagen.alt +'"><div><h3>'+ aProductos[i].Nombre +'</h3><div><p>Precio: <span>$'+ aProductos[i].Precio +'</span></p></div></div></div>').
+        $('<div class =  "col-md-3 prod" dataid = "' + aProductos[i].id + '"><img src="'+ aProductos[i].Imagen.src +'" alt="'+ aProductos[i].Imagen.alt +'"><div class="'+aProductos[i].Color+'"><h3>'+ aProductos[i].Nombre +'</h3><div><p>Precio: <span>$'+ aProductos[i].Precio +'</span></p></div></div></div>').
         appendTo(contP);
 	}
+	//modal de los productos
     $('.prod').click(function(){
 		ObtenerProducto($(this).attr('dataid'));
+		$('.btn-agregar').click(function(){
+			agregar($('.modalprod').attr('dataid'));
+		});
+	});
+	//catergoria de productos
+	$('.cat-btn li').click(function(){
+		obtenerCategoria($(this).attr('focus'));
 	});
 
-	$('.cat-btn li').click(function(){
-		if($(this).attr('focus') == "remeras"){
+	//efecto mouseover img
+	$('.prod > img').mouseover(function(){
+		var art = $(this);
+		$('<img src="'+ $(this).attr('src') +'" alt="'+ $(this).attr('alt') +'" class="zoom" />').
+		insertAfter(art);
+		$(this).mouseout(function(){ $(this).next('img').remove() });
+	});
+
+	//generar el carrito
+
+	//funciones
+    function ObtenerProducto(elId) {
+        for(var i = 0; i < aProductos.length; i++){ 
+            if (aProductos[i].id == elId) {
+                $('<div class = "modalprod" dataid = "' + aProductos[i].id + '"><a href="javascript:void(0)">X</a><div><img src="'+ aProductos[i].Imagen.src +'" alt="'+ aProductos[i].Imagen.alt +'"><div><h3>'+ aProductos[i].Nombre +'</h3><p>Precio: <span>$'+ aProductos[i].Precio +'</span></p><p>'+ aProductos[i].Descripción +'</p></div><button class="btn btn-danger btn-agregar">Agregar</button></div></div>').
+                appendTo(uno).hide().fadeIn('slow').find('a').click( function () {
+                    $('.modalprod').fadeOut('slow', function() { $(this).remove() });
+                    return false;
+				});
+            }
+        }
+	}
+	function obtenerCategoria(data){
+		if( data == "remeras"){
 			$('.prod').remove();
+
+			var intervalito = setInterval(
+				function () {
+					$('<di+v class="col modalprod banner"><img src="imagenes/articulos/remeras/propaganda.jpg" class="img-fluid"></div>').appendTo(uno).hide().fadeIn('slow');
+				},
+				1000
+			);
+			setTimeout(diezsegundos, 10000);
+			
+			function diezsegundos() {
+				clearInterval(intervalito);
+				$('.banner').fadeOut('slow', function() { $(this).remove() });
+			}
 			for(var i = 0; i < aProductos.length; i++){ 
 				if (aProductos[i].Categoria == "remeras") {
-					$('<div class =  "col-md-3 prod" dataid = "' + aProductos[i].id + '"><img src="'+ aProductos[i].Imagen.src +'" alt="'+ aProductos[i].Imagen.alt +'"><div><h3>'+ aProductos[i].Nombre +'</h3><div><p>Precio: <span>$'+ aProductos[i].Precio +'</span></p></div></div></div>').
-					appendTo(contP);
+					$('<div class =  "col-md-3 prod" dataid = "' + aProductos[i].id + '"><img src="'+ aProductos[i].Imagen.src +'" alt="'+ aProductos[i].Imagen.alt +'"><div class="'+ aProductos[i].Color +'"><h3>'+ aProductos[i].Nombre +'</h3><div><p>Precio: <span>$'+ aProductos[i].Precio +'</span></p></div></div></div>').
+					appendTo(contP).hide().fadeIn('slow');
 				}
 			}
 			$('.prod').click(function(){
 				ObtenerProducto($(this).attr('dataid'));
 			});
-		}else if($(this).attr('focus') == "tops"){
+		}else if(data == "tops"){
 			$('.prod').remove();
 			for(var i = 0; i < aProductos.length; i++){ 
 				if (aProductos[i].Categoria == "tops") {
-					$('<div class =  "col-md-3 prod" dataid = "' + aProductos[i].id + '"><img src="'+ aProductos[i].Imagen.src +'" alt="'+ aProductos[i].Imagen.alt +'"><div><h3>'+ aProductos[i].Nombre +'</h3><div><p>Precio: <span>$'+ aProductos[i].Precio +'</span></p></div></div></div>').
-					appendTo(contP);
+					$('<div class =  "col-md-3 prod" dataid = "' + aProductos[i].id + '"><img src="'+ aProductos[i].Imagen.src +'" alt="'+ aProductos[i].Imagen.alt +'"><div class="'+ aProductos[i].Color +'"><h3>'+ aProductos[i].Nombre +'</h3><div><p>Precio: <span>$'+ aProductos[i].Precio +'</span></p></div></div></div>').
+					appendTo(contP).hide().fadeIn('slow');;
 				}
 			}
 			$('.prod').click(function(){
 				ObtenerProducto($(this).attr('dataid'));
 			});
-		}else if($(this).attr('focus') == "vestidos"){
+		}else if(data == "vestidos"){
 			$('.prod').remove();
 			for(var i = 0; i < aProductos.length; i++){ 
 				if (aProductos[i].Categoria == "vestidos") {
-					$('<div class =  "col-md-3 prod" dataid = "' + aProductos[i].id + '"><img src="'+ aProductos[i].Imagen.src +'" alt="'+ aProductos[i].Imagen.alt +'"><div><h3>'+ aProductos[i].Nombre +'</h3><div><p>Precio: <span>$'+ aProductos[i].Precio +'</span></p></div></div></div>').
-					appendTo(contP);
+					$('<div class =  "col-md-3 prod" dataid = "' + aProductos[i].id + '"><img src="'+ aProductos[i].Imagen.src +'" alt="'+ aProductos[i].Imagen.alt +'"><div class="'+ aProductos[i].Color +'"><h3>'+ aProductos[i].Nombre +'</h3><div><p>Precio: <span>$'+ aProductos[i].Precio +'</span></p></div></div></div>').
+					appendTo(contP).hide().fadeIn('slow');;
 				}
 			}
 			$('.prod').click(function(){
@@ -208,32 +218,35 @@ $(function() {
 		}else{
 			$('.prod').remove();
 			for(var i = 0; i < aProductos.length; i++){
-				$('<div class =  "col-md-3 prod" dataid = "' + aProductos[i].id + '"><img src="'+ aProductos[i].Imagen.src +'" alt="'+ aProductos[i].Imagen.alt +'"><div><h3>'+ aProductos[i].Nombre +'</h3><div><p>Precio: <span>$'+ aProductos[i].Precio +'</span></p></div></div></div>').
-				appendTo(contP);
+				$('<div class =  "col-md-3 prod" dataid = "' + aProductos[i].id + '"><img src="'+ aProductos[i].Imagen.src +'" alt="'+ aProductos[i].Imagen.alt +'"><div class="'+ aProductos[i].Color +'"><h3>'+ aProductos[i].Nombre +'</h3><div><p>Precio: <span>$'+ aProductos[i].Precio +'</span></p></div></div></div>').
+				appendTo(contP).hide().fadeIn('slow');
 			}
 			$('.prod').click(function(){
 				ObtenerProducto($(this).attr('dataid'));
 			});
 		}
-	});
+	}
+	function agregar(elId){
+		ul = $('.detalle');
+		if(band == 0){
+			$('.detalle > li').remove();
+			band = 1;
+		}
+		for(var i = 0; i < aProductos.length; i++){ 
+			if (aProductos[i].id == elId) {
+				$('<li class="detalleLi col"><img src = "'+ aProductos[i].Imagen.src +'" alt = "'+ aProductos[i].Imagen.alt +'"><p>'+ aProductos[i].Nombre +'<span>$ '+ aProductos[i].Precio +'</span></p><a href="javascript:void(0)">Quitar</a></li>').
+				appendTo(ul).find('a').click( function () {$(this).parent().remove() });
+			}
+		}
+	}
+	function contador(dato){
+		if(dato == 1){
 
-	$('.prod img').mouseover(function(){
-		var art = $(this);
-		$('<img src="'+ $(this).attr('src') +'" alt="'+ $(this).attr('alt') +'" class="zoom" />').
-		insertAfter(art);
-		$(this).mouseout(function(){ $(this).next('img').remove() });
-	});
-    function ObtenerProducto(elId) {
-        for(var i = 0; i < aProductos.length; i++){ 
-            
-            if (aProductos[i].id == elId) {
-                $('<div class = "modalprod"><a href="javascript:void(0)">X</a><div><img src="'+ aProductos[i].Imagen.src +'" alt="'+ aProductos[i].Imagen.alt +'"><div><h3>'+ aProductos[i].Nombre +'</h3><p>Precio: <span>$'+ aProductos[i].Precio +'</span></p><p>'+ aProductos[i].Descripción +'</p></div><button class="btn btn-danger btnAgregar">Agregar</button></div></div>').
-                appendTo(uno).hide().fadeIn('slow').find('a').click( function () {
-                    $('.modalprod').fadeOut('slow', function() { $(this).remove() });
-                    return false;
-				});
-            }
-        }
+		}else if(dato == 2){
+
+		}else if(dato == 3){
+
+		}
 	}
 });
 
