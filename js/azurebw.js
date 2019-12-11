@@ -226,6 +226,19 @@ $(function() {
 			});
 		}
 	}
+	//vaciar los li del ul
+	$('.vaciar').click(function(){
+		$('.detalle').empty();
+	});
+	$('.enviar').click(function(){
+		if($('.detalle').find('li').length){
+			$('<div class="col modalprod"><div><form action="#" method="post" enctype="multipart/form-data"><div><label for="nombre">Nombre *</label><input type="text" id="nombre" name="nombre" required ></div><div><label for="telefono">telefono</label><input type="number" id="telefono" name="telefono" ></div><div><label for="correo">Correo</label><input type="email" id="correo" name="correo" required></div><div><label for="lugar" >Dirección</label><input type="text" if="lugar" name="lugar" required><div></div><label for="fecha">Fecha de Entrega</label><input type="date" id="fecha" name="fecha"	value="2018-07-22" min="2019-10-12" max="2020-10-12" required></div><div><input class="btn btn-primary" type="submit" value="enviar"><input class="btn btn-danger cancelar" value="cancelar"></div></form></div></div>').appendTo('#dos').
+			find('.cancelar').click(function() { $('.modalprod').remove() });
+		}else{
+			$('<p class="text-danger">Primero agregue un artículo gracias...</p>').insertBefore($('.vaciar'));
+		}
+	});
+
 	function agregar(elId){
 		ul = $('.detalle');
 		if(band == 0){

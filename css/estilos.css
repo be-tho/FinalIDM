@@ -293,3 +293,24 @@ nav .nav-item:nth-of-type(1) img[src*=".svg"] {
     text-decoration: none;
     color: #ffffff;
 }
+form{
+    width: 100%;
+}
+form div{
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+form input{
+    width: 100%;
+}
+form div:last-child{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+form div:last-child input{
+    width: 40%;
+}
