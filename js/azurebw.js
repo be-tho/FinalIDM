@@ -124,6 +124,9 @@ rem,
 top,
 vest,
 dos,
+contProd = 0,
+acumProd = 0,
+cantProd = 1,
 band = 0;
 
 $(function() {
@@ -226,16 +229,18 @@ $(function() {
 			});
 		}
 	}
-	//vaciar los li del ul
+	//vaciar los li del ul y reiniciar los contador y acumuladores a 0
 	$('.vaciar').click(function(){
 		$('.detalle').empty();
+		contador(3);
 	});
 	$('.enviar').click(function(){
 		if($('.detalle').find('li').length){
 			$('<div class="col modalprod"><div><form action="#" method="post" enctype="multipart/form-data"><div><label for="nombre">Nombre *</label><input type="text" id="nombre" name="nombre" required ></div><div><label for="telefono">telefono</label><input type="number" id="telefono" name="telefono" ></div><div><label for="correo">Correo</label><input type="email" id="correo" name="correo" required></div><div><label for="lugar" >Dirección</label><input type="text" if="lugar" name="lugar" required><div></div><label for="fecha">Fecha de Entrega</label><input type="date" id="fecha" name="fecha"	value="2018-07-22" min="2019-10-12" max="2020-10-12" required></div><div><input class="btn btn-primary" type="submit" value="enviar"><input class="btn btn-danger cancelar" value="cancelar"></div></form></div></div>').appendTo('#dos').
 			find('.cancelar').click(function() { $('.modalprod').remove() });
 		}else{
-			$('<p class="text-danger">Primero agregue un artículo gracias...</p>').insertBefore($('.vaciar'));
+			$('.sinprod').remove();
+			$('<p class="text-danger sinprod">Primero agregue un artículo gracias...</p>').insertBefore($('.vaciar'));
 		}
 	});
 
@@ -247,18 +252,41 @@ $(function() {
 		}
 		for(var i = 0; i < aProductos.length; i++){ 
 			if (aProductos[i].id == elId) {
-				$('<li class="detalleLi col"><img src = "'+ aProductos[i].Imagen.src +'" alt = "'+ aProductos[i].Imagen.alt +'"><p>'+ aProductos[i].Nombre +'<span>$ '+ aProductos[i].Precio +'</span></p><a href="javascript:void(0)">Quitar</a></li>').
-				appendTo(ul).find('a').click( function () {$(this).parent().remove() });
+				$('.sinprod').remove();
+				var precioP = aProductos[i].Precio;
+
+				
+				var li = $('.detalle > li');
+				_c(li.hasClass());
+				// if(elId == )
+
+				$('<li class="detalleLi col" id="'+ aProductos[i].id +'"><img src = "'+ aProductos[i].Imagen.src +'" alt = "'+ aProductos[i].Imagen.alt +'"><p>'+ aProductos[i].Nombre +'<span>$ '+ aProductos[i].Precio +'</span></p><p>cantidad <span> '+ cantProd +'</span></p><a href="javascript:void(0)">Quitar</a></li>').
+				appendTo(ul).find('a').click( function () {$(this).parent().remove(); contador(2 , precioP); });
+
+
+
+				contador(1 , precioP);
 			}
 		}
 	}
-	function contador(dato){
+	function contador(dato, precio){
 		if(dato == 1){
+			contProd ++;
+			$('.detalleTotal li:first-child > span').text(contProd);
+
+			acumProd = acumProd + precio;
+			$('.detalleTotal li:last-child > span').text('$ ' + acumProd);
 
 		}else if(dato == 2){
+			contProd --;
+			$('.detalleTotal li:first-child > span').text(contProd);
+
+			acumProd = acumProd - precio;
+			$('.detalleTotal li:last-child > span').text('$ ' + acumProd);
 
 		}else if(dato == 3){
-
+			$('.detalleTotal li:first-child > span').text('0');
+			$('.detalleTotal li:last-child > span').text('$ 0');
 		}
 	}
 });
