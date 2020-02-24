@@ -165,12 +165,25 @@ $(function() {
             if (aProductos[i].id == elId) {
                 $('<div class = "modalprod" dataid = "' + aProductos[i].id + '"><a href="javascript:void(0)">X</a><div><img src="'+ aProductos[i].Imagen.src +'" alt="'+ aProductos[i].Imagen.alt +'"><div><h3>'+ aProductos[i].Nombre +'</h3><p>Precio: <span>$'+ aProductos[i].Precio +'</span></p><p>'+ aProductos[i].Descripción +'</p></div><button class="btn btn-danger btn-agregar">Agregar</button></div></div>').
                 appendTo(uno).hide().fadeIn('slow').find('a').click( function () {
-                    $('.modalprod').fadeOut('slow', function() { $(this).remove() });
+					$('.modalprod').fadeOut('slow', function() { $(this).remove()}
+					);
                     return false;
 				});
             }
-        }
+		}
+		window.onkeydown = function letras (e) {
+			console.log(e.keyCode + ':', String.fromCharCode(e.keyCode));
+	
+			// Detección de tecla común:
+			switch (e.keyCode) {
+				// Escape:
+				case 27:
+					$('.modalprod').remove();
+					break;
+				}
+		}
 	}
+
 	function obtenerCategoria(data){
 		if( data == "remeras"){
 			$('.prod').remove();
@@ -187,15 +200,18 @@ $(function() {
 				clearInterval(intervalito);
 				$('.banner').fadeOut('slow', function() { $(this).remove() });
 			}
+
 			for(var i = 0; i < aProductos.length; i++){ 
 				if (aProductos[i].Categoria == "remeras") {
 					$('<div class =  "col-md-3 prod" dataid = "' + aProductos[i].id + '"><img src="'+ aProductos[i].Imagen.src +'" alt="'+ aProductos[i].Imagen.alt +'"><div class="'+ aProductos[i].Color +'"><h3>'+ aProductos[i].Nombre +'</h3><div><p>Precio: <span>$'+ aProductos[i].Precio +'</span></p></div></div></div>').
 					appendTo(contP).hide().fadeIn('slow');
 				}
 			}
+
 			$('.prod').click(function(){
 				ObtenerProducto($(this).attr('dataid'));
 			});
+
 		}else if(data == "tops"){
 			$('.prod').remove();
 			for(var i = 0; i < aProductos.length; i++){ 
@@ -229,6 +245,7 @@ $(function() {
 			});
 		}
 	}
+
 	//vaciar los li del ul y reiniciar los contador y acumuladores a 0
 	$('.vaciar').click(function(){
 		$('.detalle').empty();
@@ -258,12 +275,11 @@ $(function() {
 				
 				var li = $('.detalle > li');
 				_c(li.hasClass());
+
 				// if(elId == )
 
 				$('<li class="detalleLi col" id="'+ aProductos[i].id +'"><img src = "'+ aProductos[i].Imagen.src +'" alt = "'+ aProductos[i].Imagen.alt +'"><p>'+ aProductos[i].Nombre +'<span>$ '+ aProductos[i].Precio +'</span></p><p>cantidad <span> '+ cantProd +'</span></p><a href="javascript:void(0)">Quitar</a></li>').
 				appendTo(ul).find('a').click( function () {$(this).parent().remove(); contador(2 , precioP); });
-
-
 
 				contador(1 , precioP);
 			}
