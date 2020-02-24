@@ -172,8 +172,6 @@ $(function() {
             }
 		}
 		window.onkeydown = function letras (e) {
-			console.log(e.keyCode + ':', String.fromCharCode(e.keyCode));
-	
 			// Detección de tecla común:
 			switch (e.keyCode) {
 				// Escape:
