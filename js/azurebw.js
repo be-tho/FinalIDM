@@ -273,7 +273,6 @@ $(function() {
 				this.setCustomValidity('');
 			}
 		}
-
 		telefono.onblur = function(){
 			if (this.value.length < 8) {
 				this.setCustomValidity('Debe tener 8 caracteres como mínimo');
@@ -298,22 +297,6 @@ $(function() {
 		cvv.onblur = function(){
 			if (this.value.length != 3) {
 				this.setCustomValidity('Cvv invalido, tiene que ser 3 numeros');
-			} else {
-				this.setCustomValidity('');
-			}
-		}
-
-
-
-		// Claves:
-		var tarjeta = d.querySelector('input[name=clave]');
-
-		// Función mensaje personalizado para las claves:
-		tarjeta.onblur = Claves;
-
-		function Claves() {
-			if (clave1.value.length < 4 || clave2.value.length < 4 || clave1.value != clave2.value) {
-				this.setCustomValidity('Las claves no tiene 4 caracteres como mínimo o no son iguales');
 			} else {
 				this.setCustomValidity('');
 			}
