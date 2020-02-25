@@ -251,11 +251,72 @@ $(function() {
 	});
 	$('.enviar').click(function(){
 		if($('.detalle').find('li').length){
-			$('<div class="col modalprod"><div><form action="#" method="post" enctype="multipart/form-data"><div><label for="nombre">Nombre *</label><input type="text" id="nombre" name="nombre" required ></div><div><label for="telefono">telefono</label><input type="number" id="telefono" name="telefono" ></div><div><label for="correo">Correo</label><input type="email" id="correo" name="correo" required></div><div><label for="lugar" >Dirección</label><input type="text" if="lugar" name="lugar" required><div></div><label for="fecha">Fecha de Entrega</label><input type="date" id="fecha" name="fecha"	value="2018-07-22" min="2019-10-12" max="2020-10-12" required></div><div><input class="btn btn-primary" type="submit" value="enviar"><input class="btn btn-danger cancelar" value="cancelar"></div></form></div></div>').appendTo('#dos').
+			$('<div class="col modalprod"><div><form action="#" method="post" enctype="multipart/form-data"><div><label for="nombre">Nombre *</label><input type="text" id="nombre" name="nombre" required placeholder="Escriba su nombre aquí"/></div><div><label for="telefono">Telefono *</label><input type="number" id="telefono" name="telefono" ></div><div><label for="correo">Correo *</label><input type="email" id="correo" name="correo" required placeholder="q@q.com"/></div><div><label for="lugar" >Dirección</label><input type="text" if="lugar" name="lugar" required></div><div><label for="fecha">Fecha de Entrega</label><input type="date" id="fecha" name="fecha"	value="2020-02-25" min="2020-02-25" max="2020-03-25" required></div><div><label>Tarjeta</label><input type="number" name="tarjeta" placeholder="Numero de Tarjeta" required /><div></div><label>Cvv</label><input type="number" name="cvv" required /></div><div><input class="btn btn-primary" type="submit" value="enviar"><input class="btn btn-danger cancelar" value="cancelar"></div></form></div></div>').appendTo('#dos').
 			find('.cancelar').click(function() { $('.modalprod').remove() });
 		}else{
 			$('.sinprod').remove();
 			$('<p class="text-danger sinprod">Primero agregue un artículo gracias...</p>').insertBefore($('.vaciar'));
+		}
+
+		// Nombre:
+		var nombre = d.querySelector('input[name=nombre]');
+		var telefono = d.querySelector('input[name=telefono]');
+		var lugar = d.querySelector('input[name=lugar]');
+		var tarjeta= d.querySelector('input[name=tarjeta]');
+		var cvv = d.querySelector('input[name=cvv]');
+
+		// Genero mensaje personalizado en el onblur:
+		nombre.onblur = function () {
+			if (this.value.length < 3) {
+				this.setCustomValidity('Debe tener 3 caracteres como mínimo');
+			} else {
+				this.setCustomValidity('');
+			}
+		}
+
+		telefono.onblur = function(){
+			if (this.value.length < 8) {
+				this.setCustomValidity('Debe tener 8 caracteres como mínimo');
+			} else {
+				this.setCustomValidity('');
+			}
+		}
+		lugar.onblur = function(){
+			if (this.value.length < 3) {
+				this.setCustomValidity('Debe tener 3 caracteres como mínimo');
+			} else {
+				this.setCustomValidity('');
+			}
+		}
+		tarjeta.onblur = function(){
+			if (this.value.length < 16) {
+				this.setCustomValidity('Tarjeta invalida, minimo 16 numeros');
+			} else {
+				this.setCustomValidity('');
+			}
+		}
+		cvv.onblur = function(){
+			if (this.value.length != 3) {
+				this.setCustomValidity('Cvv invalido, tiene que ser 3 numeros');
+			} else {
+				this.setCustomValidity('');
+			}
+		}
+
+
+
+		// Claves:
+		var tarjeta = d.querySelector('input[name=clave]');
+
+		// Función mensaje personalizado para las claves:
+		tarjeta.onblur = Claves;
+
+		function Claves() {
+			if (clave1.value.length < 4 || clave2.value.length < 4 || clave1.value != clave2.value) {
+				this.setCustomValidity('Las claves no tiene 4 caracteres como mínimo o no son iguales');
+			} else {
+				this.setCustomValidity('');
+			}
 		}
 	});
 
